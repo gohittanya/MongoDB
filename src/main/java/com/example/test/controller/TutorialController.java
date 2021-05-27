@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "https://8080-silver-lion-tmko34io.ws-us07.gitpod.io")
 @RestController
 @RequestMapping("/api")
 public class TutorialController {
@@ -63,6 +63,7 @@ public class TutorialController {
   @PostMapping("/tutorials")
   public ResponseEntity<Tutorial> createTutorial(@RequestBody Tutorial tutorial) {
     try {
+      System.out.println("hello");
         Tutorial _tutorial = tutorialRepository.save(new Tutorial(tutorial.getTitle(), tutorial.getDescription(), false));
         return new ResponseEntity<>(_tutorial, HttpStatus.CREATED);
       } catch (Exception e) {
